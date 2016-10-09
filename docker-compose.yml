@@ -1,0 +1,7 @@
+teiid:
+  image: teiid/teiid:8.10.0.Final
+ontop:
+  build: ontop_endpoint
+  ports:
+   - "3007:8080"
+
