@@ -1,12 +1,12 @@
 ontop:
   extends:
-    file: scenario/docker-compose.yml
-    service: ontop_endpoint
+    file: ontop/docker-compose.yml
+    service: ontop
   links:
     - data
 teiid:
   extends:
-    file: scenario/docker-compose.yml
+    file: ontop/docker-compose.yml
     service: teiid
   links:
     - data
