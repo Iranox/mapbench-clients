@@ -1,0 +1,27 @@
+ontop:
+  image: tenforce/docker-ontop
+  ports:
+   - "3007:8080"
+  volumes_from:
+   - data
+data:
+  image: mysql
+  volumes:
+   - ./scripts:/bsbm/scripts
+   - /bsbm/data/benchmark/sql
+   - /bsbm/data/benchmark/ttl
+mysql:
+  extends:
+    file: data/docker-compose.yml
+    service: mysql
+  links:
+    - data
+  volumes_from:
+   - data
+data:
+  image: mysql
+  volumes:
+   - ./scripts:/bsbm/scripts
+   - /bsbm/data/benchmark/sql
+   - /bsbm/data/benchmark/ttl
+
