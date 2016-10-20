@@ -2,10 +2,3 @@ ontop:
   image: tenforce/docker-ontop
   ports:
    - "3007:8080"
-teiid:
-  image: jboss/teiid
-  ports:
-   - "31000:9990" 
-  volumes:
-   - ./teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
-   - ./teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments

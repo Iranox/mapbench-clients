@@ -1,5 +1,7 @@
+  links:
+    - mysql  
   volumes_from:
-   - data
+    - data
 data:
   image: mysql
   volumes:
@@ -10,5 +12,5 @@ mysql:
   extends:
     file: data/docker-compose.yml
     service: mysql
-  links:
+  volumes_from:
     - data

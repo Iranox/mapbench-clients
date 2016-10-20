@@ -1,0 +1,11 @@
+  links:
+    - mysql 
+teiid:
+  image: jboss/teiid
+  ports:
+   - "9990:9990"
+   - "31000:31000" 
+  volumes:
+   - ./teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
+   - ./teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
+   - ./teiid/modules:/opt/jboss/wildfly/modules
