@@ -1,0 +1,4 @@
+[submodule "ontop_szenario/data"]
+	path = ontop_szenario/data
+	url = https://github.com/Iranox/mapbench-data.git
+	branch = feature/teiid

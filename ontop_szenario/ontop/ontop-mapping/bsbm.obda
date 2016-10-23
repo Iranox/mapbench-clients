@@ -11,10 +11,10 @@ bsbm-inst:	http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/
 
 [SourceDeclaration]
 sourceUri	datasource1
-connectionUrl	jdbc:teiid:quickstart@mm://localhost:31000
+connectionUrl	jdbc:mysql://172.17.0.3:3306/benchmark
 username	root
 password	password
-driverClass	org.teiid.jdbc.TeiidDriver
+driverClass	com.mysql.jdbc.Driver
 
 [MappingDeclaration] @collection [[
 mappingId	Offer
