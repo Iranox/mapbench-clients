@@ -1,4 +1,0 @@
-ontop:
-  build: ontop
-  ports:
-   - "3007:8080"
