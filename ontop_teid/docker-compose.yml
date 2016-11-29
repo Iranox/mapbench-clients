@@ -1,0 +1,13 @@
+teiid:
+  image: teiid/teiid:8.10.0.Final
+  volumes:
+   - ./teiid:/teiid
+ontop:
+  build: ontop
+  links:
+   - teiid
+  volumes:
+   - ./ontop:/ontop
+  ports:
+   - "3007:8080"
+
