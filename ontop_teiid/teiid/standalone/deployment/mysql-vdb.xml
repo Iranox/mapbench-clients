@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vdb name="benchmark" version="1">
+
+
+
+  <description>A Dynamic VDB</description>
+<property name="UseConnectorMetadata" value="true" />
+    <model name="benchmark">
+        <property name="importer.useFullSchemaName" value="false"/>
+        <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+
+    </model>
+
+  <model name="mongo">
+    <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
+      <metadata type="DDL"><![CDATA[
+        CREATE FOREIGN TABLE producttype (
+          nr long,
+          label string,
+          comment string,
+          parent long,
+          offerWebpage string,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+
+        CREATE FOREIGN TABLE productfeatureproduct (
+          product long,
+          productFeature long
+        );
+
+     CREATE FOREIGN TABLE producttypeproduct (
+          product long,
+          productType long
+        );
+
+
+        CREATE FOREIGN TABLE productfeature(
+          nr long,
+          label string,
+          comment string,
+          publisher integer,
+          publishDate date
+        );
+
+        CREATE FOREIGN TABLE vendor (
+          nr long,
+          label string,
+          comment string,
+          homepage string,
+          country string,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+      ]]> </metadata>
+  </model>
+  <!--  <model name="benchmark2">
+      <property name="importer.useFullSchemaName" value="false"/>
+      <source name="test" translator-name="mysql" connection-jndi-name="java:/secondDataSource"/>
+    </model> -->
+
+</vdb>

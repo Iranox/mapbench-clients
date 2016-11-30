@@ -1,0 +1,12 @@
+teiid:
+  image: jboss/teiid
+  volumes:
+   - ./../../ontop_teiid/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
+   - ./../../ontop_teiid/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
+   - ./../../ontop_teiid/teiid/modules:/opt/jboss/wildfly/modules
+ontop:
+  image: tenforce/docker-ontop
+  ports:
+     - "3007:8080"
+  volumes:
+   - ./ontop-mapping:/ontop
