@@ -11,7 +11,7 @@
 
     </model>
 
-  <model name="mongo">
+  <!--<model name="mongo">
     <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
       <metadata type="DDL"><![CDATA[
         CREATE FOREIGN TABLE producttype (
@@ -53,7 +53,7 @@
           publishDate date
         ) OPTIONS(UPDATABLE 'TRUE');
       ]]> </metadata>
-  </model>
+  </model> -->
   <!--  <model name="benchmark2">
       <property name="importer.useFullSchemaName" value="false"/>
       <source name="test" translator-name="mysql" connection-jndi-name="java:/secondDataSource"/>

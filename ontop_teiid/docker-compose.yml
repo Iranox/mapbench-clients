@@ -1,5 +1,7 @@
 teiid:
   image: jboss/teiid
+  links:
+    - mysql
   volumes:
    - ./../../ontop_teiid/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
    - ./../../ontop_teiid/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
