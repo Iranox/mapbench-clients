@@ -1,4 +1,4 @@
 [submodule "scenarios/data"]
 	path = scenarios/data
 	url = https://github.com/Iranox/mapbench-data.git
-	branch = feature/teiid
+	branch = master
