@@ -8,7 +8,7 @@ _:DatasetRoot rdf:type void:Dataset .
 
 _:Dataset1
      rdf:type void:Dataset ;
-     void:sparqlEndpoint <http://de.dbpedia.org/sparql> .
+     void:sparqlEndpoint <http://ontop:8080/openrdf-workbench/repositories/1/query?action=exec&queryLn=SPARQL&query> .
 
 
 _:Dataset2

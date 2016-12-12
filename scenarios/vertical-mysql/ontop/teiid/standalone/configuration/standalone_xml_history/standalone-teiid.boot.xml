@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/BenchmarkDS" pool-name="BenchmarkDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://172.17.0.3:3306/benchmark</connection-url>
+                    <connection-url>jdbc:mysql://base_mysql:3306/benchmark</connection-url>
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
@@ -171,7 +171,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/secondDataSource" pool-name="secondDataSource" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://mysql:3306/benchmark</connection-url>
+                    <connection-url>jdbc:mysql://mysql_vertical_mysql:3306/benchmark</connection-url>
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
