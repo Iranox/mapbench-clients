@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/BenchmarkDS" pool-name="BenchmarkDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://mysql:3306/benchmark</connection-url>
+                    <connection-url>jdbc:mysql://base_mysql:3306/benchmark</connection-url>
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
@@ -387,7 +387,7 @@
                                 benchmark
                             </config-property>
                             <config-property name="RemoteServerList">
-                                172.17.0.4:27017
+                                mysql_horizontal_mongodb:27017
                             </config-property>
                         </connection-definition>
                     </connection-definitions>

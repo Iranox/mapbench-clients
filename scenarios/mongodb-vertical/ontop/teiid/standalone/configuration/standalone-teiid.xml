@@ -170,14 +170,6 @@
                         <password>password</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/secondDataSource" pool-name="secondDataSource" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://mysql_vertical_mysql:3306/benchmark</connection-url>
-                    <driver>mysql</driver>
-                    <security>
-                        <user-name>root</user-name>
-                        <password>password</password>
-                    </security>
-                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
@@ -387,7 +379,7 @@
                                 benchmark
                             </config-property>
                             <config-property name="RemoteServerList">
-                                172.17.0.4:27017
+                                mongodb_hybrid_vertical_mongodb:27017
                             </config-property>
                         </connection-definition>
                     </connection-definitions>

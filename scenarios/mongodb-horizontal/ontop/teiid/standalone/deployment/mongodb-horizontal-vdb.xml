@@ -6,7 +6,8 @@
   <description>A  VDB</description>
     <model visible="true" type="PHYSICAL" name="benchmark">
    <property name="importer.useFullSchemaName" value="false"/>
-    <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
+    <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+  <!--  <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
       <metadata type="DDL"><![CDATA[
         CREATE FOREIGN TABLE producttype (
           nr long,
@@ -118,7 +119,7 @@
           publisher integer,
           publishDate date
         ) OPTIONS(UPDATABLE 'TRUE');
-      ]]> </metadata>
+      ]]> </metadata> -->
     </model>
 
 

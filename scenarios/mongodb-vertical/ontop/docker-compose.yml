@@ -7,11 +7,9 @@ services:
      - "31000:31000"
     volumes_from:
       - base_data
-    depends_on:
-     - mysql_horizontal_mysql2
     volumes:
-     -  ./../../../mongodb-horizontal/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
-     - ./../../../mongodb-horizontal/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
+     -  ./../../../mongodb-vertical/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
+     - ./../../../mongodb-vertical/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
      - ./../../../vertical-mysql/ontop/teiid/modules:/opt/jboss/wildfly/modules
   ontop:
     build: ../../../single-server/ontop/ontop

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vdb name="benchmark" version="1">
+
+
+
+  <description>A  VDB</description>
+
+    <model name="benchmarkmongodb">
+      <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
+          <metadata type="DDL"><![CDATA[
+
+            CREATE FOREIGN TABLE person (
+              nr long,
+              name string,
+              mbox_sha1sum string,
+              country string,
+              publisher long,
+              publishDate date
+            );
+
+            CREATE FOREIGN TABLE productfeatureproduct (
+              product long,
+              productFeature long
+            );
+
+            CREATE FOREIGN TABLE productfeature(
+              nr long,
+              label string,
+              comment string,
+              publisher integer,
+              publishDate date
+            );
+
+            CREATE FOREIGN TABLE offer (
+              nr long,
+              product long,
+              producer long,
+              vendor long,
+              price double,
+              validFrom date,
+              validTo date,
+              deliveryDays long,
+              offerWebpage string,
+              publisher integer,
+              publishDate date
+            ) OPTIONS(UPDATABLE 'TRUE');
+
+            CREATE FOREIGN TABLE review (
+              nr long,
+              product long,
+              producer long,
+              person long,
+              text clob,
+              reviewDate date,
+              title string,
+              speech string,
+              rating1 long,
+              rating2 long,
+              rating3 long,
+              rating4 long,
+              publisher integer,
+              publishDate date
+            ) OPTIONS(UPDATABLE 'TRUE')
+
+          ]]> </metadata></model>
+
+    <model visible="true" type="PHYSICAL" name="benchmark">
+      <property name="importer.useFullSchemaName" value="false"/>
+      <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+    </model>
+
+
+
+</vdb>

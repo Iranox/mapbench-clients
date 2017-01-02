@@ -387,7 +387,7 @@
                                 benchmark
                             </config-property>
                             <config-property name="RemoteServerList">
-                                mysql_horizontal_mongodb:27017
+                                 mysql_horizontal_mongodb:27017
                             </config-property>
                         </connection-definition>
                     </connection-definitions>
