@@ -8,8 +8,8 @@ services:
     volumes_from:
       - base_data
     volumes:
-     -  ./../../../mongodb-vertical/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
-     - ./../../../mongodb-vertical/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
+     -  ./../../../mongodb-vertical-sharding/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
+     - ./../../../mongodb-vertical-sharding/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
      - ./../../../vertical-mysql/ontop/teiid/modules:/opt/jboss/wildfly/modules
   ontop:
     build: ../../../single-server/ontop/ontop
