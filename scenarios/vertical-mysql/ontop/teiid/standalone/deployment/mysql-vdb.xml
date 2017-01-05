@@ -13,7 +13,7 @@
 
     <model name="benchmar">
         <property name="importer.useFullSchemaName" value="false"/>
-        <source name="connector" translator-name="mysql" connection-jndi-name="java:/secondDataSource"/>
+        <source name="connector" translator-name="mysql" connection-jndi-name="java:/secondSource"/>
 
     </model>
 

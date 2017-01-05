@@ -8,8 +8,8 @@ services:
     volumes_from:
       - base_data
     depends_on:
-     - mysql_horizontal_mysql2
-     - mysql_horizontal_mongodb
+     - mongodb_hybrid_mysql2
+     - mongodb_hybrid_mongodb
     volumes:
      -  ./../../../mongodb-horizontal/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
      - ./../../../mongodb-horizontal/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments

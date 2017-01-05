@@ -15,3 +15,9 @@ docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-
 docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_vertical/docker-compose.yml run base_mysql mysql -u root --password=password  -s -h  base_mysql -e "DROP TABLE IF EXISTS offer" benchmark
 docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_vertical/docker-compose.yml run base_mysql mysql -u root --password=password  -s -h  base_mysql -e "DROP TABLE IF EXISTS productfeature" benchmark
 docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_vertical/docker-compose.yml run base_mysql mysql -u root --password=password  -s -h  base_mysql  -e "DROP TABLE IF EXISTS productfeatureproduct" benchmark
+
+
+docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_vertical/docker-compose.yml  \
+              stop teiid
+docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_vertical/docker-compose.yml  \
+                            start teiid

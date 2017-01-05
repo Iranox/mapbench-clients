@@ -2,12 +2,9 @@ version: '2'
 services:
   teiid:
     image: jboss/teiid
-  #  ports:
-    # - "9990:9990"
-    # - "31000:31000"
-    links:
-      - base_mysql
-      - mysql_vertical_mysql
+    ports:
+     - "9990:9990"
+     - "31000:31000"
     volumes_from:
       - base_data
     volumes:

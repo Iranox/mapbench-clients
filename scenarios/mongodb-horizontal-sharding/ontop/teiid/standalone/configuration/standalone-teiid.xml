@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/BenchmarkDS" pool-name="BenchmarkDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://base_mysql:3306/benchmark</connection-url>
+                    <connection-url>jdbc:mysql://mysql_horizontal_mysql2:3306/benchmark</connection-url>
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
@@ -379,7 +379,7 @@
                                 benchmark
                             </config-property>
                             <config-property name="RemoteServerList">
-                                mongodb_hybrid_vertical_mongodb:27017
+                                mongo-master-horizontal:27017
                             </config-property>
                         </connection-definition>
                     </connection-definitions>
