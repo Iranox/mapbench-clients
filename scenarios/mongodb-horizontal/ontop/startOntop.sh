@@ -1,4 +1,4 @@
-#docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml up -d
+docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml up -d
 docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml \
               run base_bsbm_generator sh /bsbm/scripts/bsbm_generator/generateData.sh $1
 docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml  \

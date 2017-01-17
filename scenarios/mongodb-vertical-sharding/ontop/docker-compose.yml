@@ -13,9 +13,7 @@ services:
      - ./../../../vertical-mysql/ontop/teiid/modules:/opt/jboss/wildfly/modules
   ontop:
     build: ../../../single-server/ontop/ontop
-    links:
-       - teiid
     ports:
        - "3008:8080"
     volumes:
-       - ./../../..//mongodb-vertical/ontop/ontop-mapping:/ontop
+       - ./../../../mongodb-vertical-sharding/ontop/ontop-mapping:/ontop

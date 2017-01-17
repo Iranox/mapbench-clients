@@ -4,7 +4,7 @@ RUN wget https://sourceforge.net/projects/ontop4obda/files/ontop-1.18.0/ontop-je
 
 WORKDIR jetty-distribution-8.1.9
 
-RUN wget https://repository.jboss.org/nexus/service/local/repositories/releases/content/org/jboss/teiid/teiid/9.0.5/teiid-9.0.5-jdbc.jar && mv teiid-9.0.5-jdbc.jar lib/ext
+RUN wget https://repository.jboss.org/nexus/service/local/repositories/releases/content/org/jboss/teiid/teiid/9.1.2/teiid-9.1.2-jdbc.jar && mv teiid-9.1.2-jdbc.jar lib/ext
 
 RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.40.zip && unzip mysql-connector-java-5.1.40.zip && rm mysql-connector-java-5.1.40.zip && mv mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar lib/ext
 
