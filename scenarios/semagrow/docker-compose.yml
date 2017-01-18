@@ -1,6 +1,0 @@
-semagrow-server:
-  image: semagrow/semagrow
-  ports:
-    - "8090:8080"
-  volumes:
-    - ./../../../semagrow/semagrow:/etc/default/semagrow

@@ -1,0 +1,40 @@
+[PrefixDeclaration]
+:		http://obda.inf.unibz.it/ontop/benchmark/bsbm.owl#
+dc:		http://purl.org/dc/elements/1.1/
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rev:		http://purl.org/stuff/rev#
+bsbm:		http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/
+foaf:		http://xmlns.com/foaf/0.1/
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+iso3166:		http://downlode.org/rdf/iso-3166/countries#
+bsbm-inst:	http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/
+
+[SourceDeclaration]
+sourceUri	datasource1
+connectionUrl	jdbc:mysql://base_mysql:3306/benchmark
+username	root
+password	password
+driverClass	com.mysql.jdbc.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	Producer
+target		bsbm-inst:dataFromProducer{nr}/Producer{nr} a bsbm:Producer ; rdfs:label {label} ; rdfs:comment {comment} ; foaf:homepage {homepage} ; bsbm:country iso3166:{country} ; dc:publisher bsbm-inst:dataFromProducer{nr}/Producer{nr} ; dc:date {publishDate} .
+source		select nr, label, comment, homepage, country, publisher, publishDate from producer
+
+mappingId	Product
+target		bsbm-inst:dataFromProducer/Product{nr} a bsbm:Product ; rdfs:label {label} ; rdfs:comment {comment} ; bsbm:productPropertyNumeric1 {propertyNum1} ; bsbm:productPropertyNumeric2 {propertyNum2} ; bsbm:productPropertyNumeric3 {propertyNum3} ; bsbm:productPropertyNumeric4 {propertyNum4} ; bsbm:productPropertyNumeric5 {propertyNum5} ; bsbm:productPropertyNumeric6 {propertyNum6} ; bsbm:productPropertyTextual1 {propertyTex1} ; bsbm:productPropertyTextual2 {propertyTex2} ; bsbm:productPropertyTextual3 {propertyTex3} ; bsbm:productPropertyTextual4 {propertyTex4} ; bsbm:productPropertyTextual5 {propertyTex5} ; bsbm:productPropertyTextual6 {propertyTex6} ; dc:date {publishDate} ; bsbm:producer bsbm-inst:dataFromProducer{producer}/Producer{producer} ; dc:publisher bsbm-inst:dataFromProducer{producer}/Producer{producer} .
+source		select nr, label, comment, producer, propertyNum1, propertyNum2, propertyNum3, propertyNum4, propertyNum5, propertyNum6, propertyTex1, propertyTex2, propertyTex3, propertyTex4, propertyTex5, publisher, propertyTex6, publishDate from product
+
+
+mappingId	Product has Product Type
+target		bsbm-inst:dataFromProducer/Product{product_nr} bsbm:type bsbm-inst:ProductType{productType} .
+source		select product.producer as product_producer, product.nr as product_nr, producttypeproduct.productType from product, producttypeproduct where product.nr = producttypeproduct.product
+
+mappingId	Product Feature
+target		bsbm-inst:ProductFeature{nr} a bsbm:ProductFeature ; rdfs:label {label} ; rdfs:comment {comment} ; dc:publisher bsbm-inst:StandardizationInstitution{publisher} ; dc:date {publishDate} .
+source		select nr, label, comment, publisher, publishDate from productfeature
+
+mappingId	Product Type
+target		bsbm-inst:ProductType{nr} a bsbm:ProductType ; rdfs:label {label} ; rdfs:comment {comment} ; dc:publisher bsbm-inst:StandardizationInstitution{publisher} ; bsbm:subClassOf bsbm-inst:ProductType{parent} ; dc:date {publishDate} .
+source		select nr, label, comment, parent, publisher, publishDate from producttype
+]]
