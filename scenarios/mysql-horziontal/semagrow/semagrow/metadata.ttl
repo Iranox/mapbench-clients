@@ -1,0 +1,15 @@
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+_:DatasetRoot rdf:type void:Dataset .
+
+_:Dataset1
+     rdf:type void:Dataset ;
+     void:sparqlEndpoint <http://ontopeins:8080/openrdf-workbench/repositories/1/query?action=exec&ref=test&query> .
+
+_:Dataset2
+     rdf:type void:Dataset ;
+     void:sparqlEndpoint <http://ontopzwei:8080/openrdf-workbench/repositories/1/query?action=exec&ref=test&query> .

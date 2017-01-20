@@ -1,4 +1,4 @@
 @prefix fluid: <http://fluidops.org/config#>.
 
 <http://DBpedia>   fluid:store "SPARQLEndpoint";
-                   fluid:SPARQLEndpoint "http://ontop:8080/openrdf-workbench/repositories/1/query?action=exec&queryLn=SPARQL&query" .
+                   fluid:SPARQLEndpoint "http://ontop:8080/openrdf-workbench/repositories/1/query?query" .
