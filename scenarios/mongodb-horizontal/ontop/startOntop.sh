@@ -10,6 +10,10 @@ docker-compose  -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb
     docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml \
                           run mysql_horizontal_mysql2  sh /bsbm/scripts/mysql/createOfferMySQL2.sh
 
+    
+
     docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml run mysql_horizontal_mapbench-datadistributor sh /bsbm/scripts/mapbench-datadistributor/parseToMongoDBHorizintal.sh
 
+    docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml run base_mysql mysql -u root --password=password  -s -h  base_mysql -e "DROP database benchmark" benchmark
+    docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-vertical/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml run base_mysql mysql -u root --password=password  -s -h  base_mysql -e "CREATE database benchmark" benchmark
     docker-compose -f ../../data/scenario/base/docker-compose.yml  -f ../../mongodb-horizontal/ontop/docker-compose.yml -f  ../../data/scenario/mongodb_horizontal/docker-compose.yml stop base_mysql

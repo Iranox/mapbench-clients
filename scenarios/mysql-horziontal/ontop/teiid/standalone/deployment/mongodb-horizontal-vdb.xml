@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vdb name="benchmark" version="1">
+
+
+
+  <description>A  VDB</description>
+    <model visible="true" type="PHYSICAL" name="mysqldatabase">
+      <property name="multisource" value="true"/>
+      <property name="importer.useFullSchemaName" value="false"/>
+      <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+      <source name="jdbc" translator-name="mysql" connection-jndi-name="java:/Benchmark"/>
+    </model>
+
+
+
+
+</vdb>

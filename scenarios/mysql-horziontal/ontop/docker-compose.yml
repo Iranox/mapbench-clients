@@ -8,12 +8,14 @@ services:
     volumes_from:
       - base_data
     volumes:
-     -  ./../../../mongodb-horizontal/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
-     - ./../../../mongodb-horizontal/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
+     -  ./../../../mysql-horziontal/ontop/teiid/standalone/configuration:/opt/jboss/wildfly/standalone/configuration
+     - ./../../../mysql-horziontal/ontop/teiid/standalone/deployment:/opt/jboss/wildfly/standalone/deployments
      - ./../../../vertical-mysql/ontop/teiid/modules:/opt/jboss/wildfly/modules
   ontop:
     build: ../../../single-server/ontop/ontop
+    depends_on:
+       - teiid
     ports:
        - "3008:8080"
     volumes:
-     - ./../../../mongodb-horizontal/ontop/ontop-mapping:/ontop
+     - ./../../../mysql-horziontal/ontop/ontop-mapping:/ontop

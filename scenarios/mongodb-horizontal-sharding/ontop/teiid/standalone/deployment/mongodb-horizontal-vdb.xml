@@ -4,7 +4,181 @@
 
 
   <description>A  VDB</description>
-    <model visible="true" type="PHYSICAL" name="benchmark">
-   <property name="importer.useFullSchemaName" value="false"/>
-    <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+    <model visible="true" type="PHYSICAL" name="mysqldatabase">
+      <source name="jdbc-connector" translator-name="mysql" connection-jndi-name="java:/BenchmarkDS"/>
+    </model>
+
+    <model visible = "true" type = "VIRTUAL" name = "test">
+          <metadata type = "DDL"><![CDATA[
+
+CREATE VIEW benchmarkreview AS
+select * from mysqldatabase.benchmark.review
+union all
+select *  from mongodbdatabase.review;
+
+            CREATE VIEW benchmarkoffer AS
+                select * from mysqldatabase.benchmark.offer
+                union
+                select * from mongodbdatabase.offer;
+
+           CREATE VIEW benchmarkvendor AS
+               select * from mysqldatabase.benchmark.vendor
+               union
+               select * from mongodbdatabase.vendor;
+
+            CREATE VIEW benchmarkproduct AS
+             select * from mysqldatabase.benchmark.product
+                           union
+                           select * from mongodbdatabase.product;
+
+            CREATE VIEW benchmarkproducttype AS
+              select * from mysqldatabase.benchmark.producttype
+                    union
+              select * from mongodbdatabase.producttype;
+
+              CREATE VIEW benchmarkperson AS
+               select * from mysqldatabase.benchmark.person
+                             union
+                             select * from mongodbdatabase.person;
+
+              CREATE VIEW benchmarkproducer AS
+                    select * from mysqldatabase.benchmark.producer
+                        union
+                    select * from mongodbdatabase.producer;
+
+                    CREATE VIEW benchmarkproductfeature AS
+                          select * from mysqldatabase.benchmark.productfeature
+                              union
+                          select * from mongodbdatabase.productfeature;
+
+              CREATE VIEW benchmarkproductfeatureproduct AS
+                select * from mysqldatabase.benchmark.productfeatureproduct
+                    union
+            select * from mongodbdatabase.productfeatureproduct;
+
+            CREATE VIEW benchmarkproducttypeproduct AS
+              select * from mysqldatabase.benchmark.producttypeproduct
+                  union
+          select * from mongodbdatabase.producttypeproduct;
+          ]]>
+          </metadata>
+       </model>
+
+<model visible="true" type="PHYSICAL" name="mongodbdatabase">
+    <source name="local" translator-name="mongodb" connection-jndi-name="java:/mongoDS"/>
+      <metadata type="DDL"><![CDATA[
+        CREATE FOREIGN TABLE producttype (
+          nr long,
+          label string,
+          comment string,
+          parent long,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+
+        CREATE FOREIGN TABLE person (
+          nr long,
+          name string,
+          mbox_sha1sum string,
+          country string,
+          publisher long,
+          publishDate date
+        );
+
+        CREATE FOREIGN TABLE productfeatureproduct (
+          product long,
+          productFeature long
+        );
+
+     CREATE FOREIGN TABLE producttypeproduct (
+          product long,
+          productType long
+        );
+
+
+        CREATE FOREIGN TABLE productfeature(
+          nr long,
+          label string,
+          comment string,
+          publisher integer,
+          publishDate date
+        );
+
+        CREATE FOREIGN TABLE producer(
+          nr long,
+          label string,
+          comment string,
+          homepage string,
+          country string,
+          publisher integer,
+          publishDate date
+        );
+
+
+        CREATE FOREIGN TABLE offer (
+          nr long,
+          product long,
+          producer long,
+          vendor long,
+          price double,
+          validFrom date,
+          validTo date,
+          deliveryDays long,
+          offerWebpage string,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+
+        CREATE FOREIGN TABLE review (
+          nr long,
+          product long,
+          producer long,
+          person long,
+          text clob,
+          reviewDate timestamp,
+          title string,
+          speech string,
+          rating1 long,
+          rating2 long,
+          rating3 long,
+          rating4 long,
+          publisher integer,
+          publishDate timestamp
+        ) OPTIONS(UPDATABLE 'TRUE');
+
+        CREATE FOREIGN TABLE product (
+          nr long,
+          label string,
+          comment string,
+          producer long,
+          propertyNum1 long,
+          propertyNum2 long,
+          propertyNum3 long,
+          propertyNum4 long,
+          propertyNum5 long,
+          propertyNum6 long,
+          propertyTex1 string,
+          propertyTex2 string,
+          propertyTex3 string,
+          propertyTex4 string,
+          propertyTex5 string,
+          propertyTex6 string,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+
+        CREATE FOREIGN TABLE vendor (
+          nr long,
+          label string,
+          comment string,
+          homepage string,
+          country string,
+          publisher integer,
+          publishDate date
+        ) OPTIONS(UPDATABLE 'TRUE');
+      ]]> </metadata>
+    </model>
+
+
+
 </vdb>

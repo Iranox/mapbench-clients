@@ -170,6 +170,14 @@
                         <password>password</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:/Benchmark" pool-name="Benchmark" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:mysql://mysql_horizontal_mysql3:3306/benchmark</connection-url>
+                    <driver>mysql</driver>
+                    <security>
+                        <user-name>root</user-name>
+                        <password>password</password>
+                    </security>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
@@ -369,20 +377,6 @@
                 </resource-adapter>
                 <resource-adapter id="webservice">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.webservice"/>
-                </resource-adapter>
-                <resource-adapter id="mongodb">
-                    <module slot="main" id="org.jboss.teiid.resource-adapter.mongodb"/>
-                    <transaction-support>NoTransaction</transaction-support>
-                    <connection-definitions>
-                        <connection-definition class-name="org.teiid.resource.adapter.mongodb.MongoDBManagedConnectionFactory" jndi-name="java:/mongoDS" enabled="true" use-java-context="true" pool-name="teiid-mongodb-ds">
-                            <config-property name="Database">
-                                benchmark
-                            </config-property>
-                            <config-property name="RemoteServerList">
-                                mysql_horizontal_mongodb:27017
-                            </config-property>
-                        </connection-definition>
-                    </connection-definitions>
                 </resource-adapter>
                 <resource-adapter id="cassandra">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.cassandra"/>
